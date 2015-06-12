@@ -3,12 +3,16 @@
   - @article.errors.full_messages.each do |error|
     li = error
 
-  p = f.label :title
-  br
+  p
+    = f.label :title
     = f.text_field :title
-
-  p = f.label :body
   br
+  p
+    = f.label :body
     = f.text_area :body
-
+  br
+  p
+    = f.label :tag_list
+  	= f.text_field :tag_list
+  br
   p = f.submit

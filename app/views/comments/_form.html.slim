@@ -1,12 +1,12 @@
 h3 Post a Comment
 
 = form_for [ @article, @comment ] do |f|
-  p = f.label :author_name, 'Your Name'
-  br
+  p
+    = f.label :author_name, 'Your Name'
     = f.text_field :author_name
-
-  p = f.label :body, 'Your Comment'
   br
+  p
+    = f.label :body, 'Your Comment'
     = f.text_area :body
   br
   p = f.submit 'Submit'
