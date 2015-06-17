@@ -7,9 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<p class="flash"><%= flash.notice %></p>
-<%= yield %>
-
+  <p class="flash">
+    <%= flash.notice %>
+  </p>
+  <div id="content">
+    <%= yield %>
+    <hr>
+    <h6>
+      <% if author_signed_in? %>
+        <%= "Logged in as #{current_author.username}" %>
+        <%= link_to "Sign Out", destroy_author_session_path, :method => :delete %>
+      <% else %>
+        Already a member? <%= link_to "Sign In", new_author_session_path %>
+        <br>
+        Not a member? <%= link_to "Sign Up", new_author_registration_path %>
+      <% end %>
+    </h6>
+  </div>
 </body>
 </html>

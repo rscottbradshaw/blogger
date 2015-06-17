@@ -1,4 +1,5 @@
 class TagsController < ApplicationController
+  before_action :authenticate_author!, only: [:destroy]
 
   def index
     @tags = Tag.all

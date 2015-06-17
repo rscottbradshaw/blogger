@@ -21,6 +21,7 @@ h3
 
 = link_to "<< Back to Articles List", articles_path
 br
-= link_to "Edit", edit_article_path(@article)
-br
-= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"}
+- if author_signed_in?
+  = link_to "Edit", edit_article_path(@article)
+  br
+  = link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"}
